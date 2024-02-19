@@ -1,4 +1,4 @@
-package org.master.java.functional;
+package org.master.java.functional.myfunctional;
 
 
 @FunctionalInterface

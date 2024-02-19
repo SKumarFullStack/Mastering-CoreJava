@@ -14,8 +14,5 @@ public class Area2DDemo {
         impl.areaOfSquare(BigDecimal.valueOf(param1));
         impl.areaOfCircle(BigDecimal.valueOf(param1));
         impl.areaOfCircle(BigDecimal.valueOf(param4));
-
-
-
     }
 }

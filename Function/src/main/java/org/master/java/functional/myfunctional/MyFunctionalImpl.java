@@ -1,4 +1,6 @@
-package org.master.java.functional;
+package org.master.java.functional.myfunctional;
+
+import org.master.java.functional.myfunctional.MyFunctional;
 
 import java.math.BigDecimal;
 
