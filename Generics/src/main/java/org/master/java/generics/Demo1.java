@@ -9,6 +9,6 @@ public class Demo1 {
         List list = new ArrayList<Date>();
         List<Date> dates = new ArrayList<>(); // unchecked warning
         List<Date> dates2 = new ArrayList<Date>();
-        //List<Date> otherdates = new ArrayList<String>(); // Compile-time Error!
+        //List<Date> wrongDates = new ArrayList<String>(); // Compile-time Error!
     }
 }
