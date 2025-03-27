@@ -1,5 +1,9 @@
 package org.master.java.streams;
 
+import org.master.java.company.dto.Business;
+import org.master.java.company.dto.Employee;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,6 +11,8 @@ import java.util.stream.Collectors;
 public class StreamMethodsDemo {
 
     public static void main(String[] args) {
+
+        System.out.println("demoComplex:" + demoComplex());
         System.out.println("demoReduce:" + demoReduce ());
 
         /* Use streams with immutable objects: The Stream API works best with immutable objects.
@@ -72,6 +78,30 @@ public class StreamMethodsDemo {
 
         //Use of reduce
         var sum = list.parallelStream().reduce(0, Integer::sum);
+    }
+
+
+    private static String demoComplex(){
+        Employee.EmployeeBuilder builder = Employee.builder();
+        List<Business> businesses = new ArrayList<>();
+        Business amzn =  new Business("Amazon", List.of(builder.firstName("Shri").build(),builder.firstName("SKM").build(), builder.firstName("Kumar").build()));
+        businesses.add(amzn);
+        Business oracle =  new Business("Oracle", List.of(builder.firstName("Amit").build(), builder.firstName("Garg").build()));
+        businesses.add(oracle);
+        Business microsoft =  new Business("Microsoft", List.of(builder.firstName("Micro").build(), builder.firstName("Soft").build()));
+        businesses.add(microsoft);
+
+        String names = businesses.stream()
+                .filter(b-> b.getBusinessName().startsWith("A"))
+                .flatMap(b -> b.getEmployees().stream())
+                .sorted()
+                .filter(e-> e.getFirstName().startsWith("S"))
+                .map(Employee::getFirstName)
+                .collect(Collectors.joining("#"));
+
+        System.out.println(names);
+        return names;
+
     }
 
 }
