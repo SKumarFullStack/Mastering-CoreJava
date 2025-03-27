@@ -1,6 +1,7 @@
 package org.master.java.functional;
 
 import java.util.function.BiConsumer;
+import java.util.function.Predicate;
 
 public class FunctionalImpl {
 
@@ -22,6 +23,12 @@ public class FunctionalImpl {
 
     private static void executeFunction(BiConsumer function, Object firstParam, Object secondParam) {
         function.accept(firstParam, secondParam);
+    }
+
+    private void demo(){
+        Predicate<String> isEmpty = (s) -> s.isEmpty();
+        System.out.println(isEmpty.test("")); // prints true
+        System.out.println(isEmpty.test("Hello")); // prints false
     }
 
 }

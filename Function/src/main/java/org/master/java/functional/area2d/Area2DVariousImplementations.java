@@ -25,8 +25,7 @@ public class Area2DVariousImplementations {
     }
 
     BigDecimal areaOfCircle(BigDecimal radius){
-        double cons = Math.PI * 2;
-        Area2D<BigDecimal,Optional<BigDecimal>> function = (l,b) -> l.multiply(BigDecimal.valueOf(cons));
+        Area2D<BigDecimal,Optional<BigDecimal>> function = (r,empty) -> r.multiply(BigDecimal.valueOf(Math.PI * 2));
         BigDecimal area =    executeFunctional(function, radius, Optional.empty());
         System.out.println("Area of circle with radius :"+ radius + " unit is :"+ area + " units");
         return area;
