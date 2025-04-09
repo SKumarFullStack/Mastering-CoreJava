@@ -1,11 +1,10 @@
 package org.master.java.streams;
 
 import org.master.java.company.dto.Business;
+import org.master.java.company.dto.Company;
 import org.master.java.company.dto.Employee;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamMethodsDemo {
@@ -103,5 +102,35 @@ public class StreamMethodsDemo {
         return names;
 
     }
+
+    private List<Company> demo (List<Employee> employees){
+        return employees.stream()
+                .filter(e-> e.getCompany().getSector().equals("IT"))
+                .map(e-> e.getCompany())
+                .collect(Collectors.toList());
+    }
+
+    private List<Company> demo2 (List<Employee> employees){
+        return employees.stream()
+                .filter(e-> e.getCompany().getSector().equals("IT"))
+                .map(e-> e.getCompany())
+                .collect(Collectors.toList());
+    }
+
+
+    private Map<Company,List<Employee>> getCompanyEmployeeMap (List<Employee> employees){
+        Map<Company,List<Employee>> returnMe= new HashMap<>();
+        employees.stream().forEach(emp-> {
+            if(returnMe.get(emp.getCompany()) == null){
+                List<Employee> listEmployee = new ArrayList<>();
+                listEmployee.add(emp);
+                returnMe.put(emp.getCompany(),listEmployee );
+            }else{
+                returnMe.get(emp.getCompany()).add(emp);
+            }
+        });
+        return returnMe;
+    }
+
 
 }

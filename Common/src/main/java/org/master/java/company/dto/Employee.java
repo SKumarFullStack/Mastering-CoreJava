@@ -18,6 +18,7 @@ public class Employee implements Comparable{
     private String middleName;
     private String lastName;
     private BigDecimal salary;
+    private Company company;
 
     @Override
     public int compareTo(Object o) {
