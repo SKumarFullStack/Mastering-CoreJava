@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -19,6 +20,7 @@ public class Employee implements Comparable{
     private String lastName;
     private BigDecimal salary;
     private Company company;
+    private List<Company> pastCompanies;
 
     @Override
     public int compareTo(Object o) {
